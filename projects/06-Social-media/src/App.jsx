@@ -5,26 +5,25 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import PostList from "./components/PostList";
 import SideBar from "./components/SideBar";
+import PostListProvider from "./store/post-list-store";
 
 function App() {
   const [selectedTab, setSelectedTab] = useState("home");
 
-  const handleTabButton = (tabName) => {
-    setSelectedTab(tabName);
-  };
-
   return (
-    <div className="app-container">
-      <SideBar
-        selectedTab={selectedTab}
-        handleTabButton={handleTabButton}
-      ></SideBar>
-      <div className="content">
-        <Header></Header>
-        {selectedTab === "home" ? <PostList /> : <CreatePost />}
-        <Footer />
+    <PostListProvider>
+      <div className="app-container">
+        <SideBar
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
+        ></SideBar>
+        <div className="content">
+          <Header></Header>
+          {selectedTab === "home" ? <PostList /> : <CreatePost />}
+          <Footer />
+        </div>
       </div>
-    </div>
+    </PostListProvider>
   );
 }
 

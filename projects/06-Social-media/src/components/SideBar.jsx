@@ -1,7 +1,7 @@
-const SideBar = ({ selectedTab, handleTabButton }) => {
+const SideBar = ({ selectedTab, setSelectedTab }) => {
   return (
     <div
-      className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
+      className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar "
       style={{ width: "280px" }}
     >
       <a
@@ -21,7 +21,7 @@ const SideBar = ({ selectedTab, handleTabButton }) => {
             className={`nav-link text-white ${
               selectedTab === "home" && "active"
             }`}
-            onClick={() => handleTabButton("home")}
+            onClick={() => setSelectedTab("home")}
           >
             <svg className="bi pe-none me-2" width="16" height="16">
               <use xlinkHref="#home"></use>
@@ -35,7 +35,7 @@ const SideBar = ({ selectedTab, handleTabButton }) => {
             className={`nav-link text-white ${
               selectedTab === "createPost" && "active"
             }`}
-            onClick={() => handleTabButton("createPost")}
+            onClick={() => setSelectedTab("createPost")}
           >
             <svg className="bi pe-none me-2" width="16" height="16">
               <use xlinkHref="#speedometer2"></use>
